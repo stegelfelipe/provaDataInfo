@@ -29,6 +29,16 @@
 <script src="resources/js/help.js"></script>
 </head>
 <body data-ng-app="UsuariosApp">
+
+	<!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+
+	<!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+      <![endif]-->
+
 	<nav
 		class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
 		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">DATAINFO</a>
@@ -49,7 +59,7 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"><i class="fa fa-cog"></i> Parâmetros </a>
 						<li class="nav-item" aria-labelledby="navbarDropdown"><a
-							class="nav-link active" href="#">Usuários</a></li>
+							class="nav-link active" href="index.html">Usuários</a></li>
 						<li class="nav-item"><a class="nav-link" href="#"> <i
 								class="fa fa-question"></i> Sobre
 						</a></li>
@@ -72,8 +82,8 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="email">Email *</label> <input type="email"
-									class="form-control" id="email"
-									data-ng-model="user.email" required>
+									class="form-control" id="email" data-ng-model="user.email"
+									required>
 							</div>
 							<div class="form-group col-md-6">
 								<label for="nome">Nome *</label> <input type="text"
@@ -84,8 +94,7 @@
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label for="cpf">CPF *</label> <input type="number"
-									class="form-control" id="cpf"
-									data-ng-model="user.cpf" required>
+									class="form-control" id="cpf" data-ng-model="user.cpf" required>
 							</div>
 							<div class="form-group col-md-3">
 								<label for="telefone">Telefone</label> <input type="number"
@@ -93,29 +102,29 @@
 									data-ng-model="user.telefone">
 							</div>
 							<div class="form-group col-md-3">
-								<label class="mr-sm-2" for="situacao">Função *</label>
-								 <select class="custom-select mr-sm-2" id="perfil"
+								<label class="mr-sm-2" for="situacao">Função *</label> <select
+									class="custom-select mr-sm-2" id="perfil"
 									data-ng-model="user.funcao" required>
-										<option value="1">Gestor</option>
-										<option value="2">Administrador</option>
-										<option value="3">Frente de Caixa</option>
+									<option value="1">Gestor</option>
+									<option value="2">Administrador</option>
+									<option value="3">Frente de Caixa</option>
 								</select>
-								
+
 							</div>
 							<div class="
 									form-groupcol-md-3">
-									<label class="mr-sm-2" for="perfil">Perfil *</label>
-									<select class="custom-select mr-sm-2" id="perfil"
+								<label class="mr-sm-2" for="perfil">Perfil *</label> <select
+									class="custom-select mr-sm-2" id="perfil"
 									data-ng-model="user.perfil" required>
-										<option value="1">Gestor Nacional</option>
-										<option value="2">Gestor Estadual</option>
-										<option value="3">Gestor Municipal</option>
+									<option value="1">Gestor Nacional</option>
+									<option value="2">Gestor Estadual</option>
+									<option value="3">Gestor Municipal</option>
 								</select>
 							</div>
 						</div>
 						<div class=text-right>
-							<a href="index2.html" class="btn btn-primary" role="button">
-								<i class="fa fa-arrow-left"></i> Voltar
+							<a href="index.html" class="btn btn-primary" role="button"> <i
+								class="fa fa-arrow-left"></i> Voltar
 							</a>
 							<button type="submit" class="btn btn-primary"
 								data-ng-click="createUsuario()>
@@ -129,5 +138,36 @@
 			</main>
 		</div>
 	</div>
+	<script src="bower_components/jquery/jquery.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+
+	<!-- build:js scripts/plugins.js -->
+	<script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
+	<script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
+	<script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
+	<script src="bower_components/bootstrap-sass/js/bootstrap-tooltip.js"></script>
+	<script src="bower_components/bootstrap-sass/js/bootstrap-modal.js"></script>
+	<script
+		src="bower_components/bootstrap-sass/js/bootstrap-transition.js"></script>
+	<script src="bower_components/bootstrap-sass/js/bootstrap-button.js"></script>
+	<script src="bower_components/bootstrap-sass/js/bootstrap-popover.js"></script>
+	<script src="bower_components/bootstrap-sass/js/bootstrap-typeahead.js"></script>
+	<script src="bower_components/bootstrap-sass/js/bootstrap-carousel.js"></script>
+	<script src="bower_components/bootstrap-sass/js/bootstrap-scrollspy.js"></script>
+	<script src="bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
+	<script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
+	<!-- endbuild -->
+
+	<!-- build:js scripts/modules.js -->
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+	<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<!-- endbuild -->
+
+	<!-- build:js({.tmp,app}) scripts/scripts.js -->
+	<script src="resources/js/app.js"></script>
+	<script src="resources/js/services.js"></script>
+	<script src="resources/js/controllers.js"></script>
+	<!-- endbuild -->
 </body>
 </html>

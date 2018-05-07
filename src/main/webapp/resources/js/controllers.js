@@ -59,6 +59,6 @@ app.controller('UserCreationCtrl', ['$scope', 'UsersFactory', '$location',
     /* callback for ng-click 'createUsuario': */
     $scope.createUsuario = function () {
       UsersFactory.create($scope.user);
-      $location.path('/index2.html');
+      $location.path('/user-list');
     }
   }]);

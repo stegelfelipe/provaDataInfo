@@ -5,7 +5,7 @@ angular.module('UsuariosApp', [
   'UsuariosApp.controllers'
   ])
 .config(function ($routeProvider, $httpProvider) {
-  $routeProvider.when('/user-list', {templateUrl: 'index2.html', controller: 'UserListCtrl'});
+  $routeProvider.when('/user-list', {templateUrl: 'index.html', controller: 'UserListCtrl'});
   $routeProvider.when('/editarUsuario/:cpf', {templateUrl: 'editarUsuario.html', controller: 'UserDetailCtrl'});
   $routeProvider.when('/incluirUsuario', {templateUrl: 'incluirUsuario.html', controller: 'UserCreationCtrl'});
   

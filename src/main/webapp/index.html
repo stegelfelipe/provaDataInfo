@@ -1,63 +1,188 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body ng-app="HelpApp">
-        <div ng-controller="ChamadoController as controller">
-            <h1>HELP APP</h1>
-            <h5>{{controller.usuario}}</h5>
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+<html lang="en">
+<title>DataInfo - Usuários</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
+	integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	crossorigin="anonymous">
+<link href="resources/css/style.css" rel="stylesheet">
+!-- Estilos customizados para esse template -->
+<link href="resources/css/dashboard.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+	integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+	crossorigin="anonymous"></script>
+</head>
 
-            <div style="border: 1px solid black;"
-                 ng-show="controller.chamado">
-                <label for="chamadoId">ID: </label>
-                <input type="number" 
-                       id="chamadoId" 
-                       ng-model="controller.chamado.id"
-                       disabled><br>
+<body data-ng-app="UsuariosApp">
+	
+	<!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
 
-                <label for="assunto">Assunto: </label>
-                <input type="text" id="assunto" ng-model="controller.chamado.assunto"><br>
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+      <![endif]-->
+	
+	<nav
+		class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">DATAINFO</a>
+		<h5 style="color: #fff; padding-right: 50%">Usuários</h5>
+	</nav>
 
-                <label for="mensagem">Mensagem: </label>
-                <textarea rows="4" id="mensagem" ng-model="controller.chamado.mensagem"></textarea><br>
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+				<div class="sidebar-sticky">
+					<ul class="nav flex-column">
+						<li class="nav-item"><a class="nav-link" href="#"> <i
+								class="fa fa-home"></i> Principal
+						</a></li>
 
-                <button type="button" data-ng-click="controller.salvar()">Salvar</button>
-                <button type="button" data-ng-click="controller.chamado = undefined">Cancelar</button>
-            </div>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"><i class="fa fa-cog"></i> Parâmetros </a>
+						<li class="nav-item" aria-labelledby="navbarDropdown"><a
+							class="nav-link active" href="index.html">Usuários</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"> <i
+								class="fa fa-question"></i> Sobre
+						</a></li>
+					</ul>
+				</div>
+			</nav>
 
-            <div style="border: 1px solid black;"
-                 data-ng-show="!controller.chamado">
-                <button type="button" data-ng-click="controller.novo()">Novo Chamado</button><br>
-                <br>
-                <table border="1">
-                    <tr>
-                        <th>ID</th>
-                        <th>Assunto</th>
-                        <th>Status</th>
-                        <th>Mensagem</th>
-                        <th>Opções</th>
-                    </tr>
-                    <tr data-ng-repeat="chamado in controller.chamados">
-                        <td>{{chamado.id}}</td>
-                        <td>{{chamado.assunto}}</td>
-                        <td>{{chamado.status}}</td>
-                        <td>{{chamado.mensagem}}</td>
-                        <td>
-                            <button type="button" data-ng-click="controller.alterar(chamado)">Alterar</button>
-                            <button type="button" data-ng-click="controller.deletar(chamado)">Excluir</button>
-                            <button type="button" 
-                                    data-ng-show="chamado.status !== 'FECHADO'"
-                                    data-ng-click="controller.concluir(chamado)">Concluir</button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+			<div
+				class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+				<h5 class="h5">Parâmetros > Usuários</h5>
 
-    <script src="resources/angular.js"></script>
-    <script src="resources/help.js"></script>
+			</div>
+
+			<div class="card">
+				<div class="card-header">Lista de Usuários</div>
+				<div class="card-body">
+					<form>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label for="nome">Nome</label> <input type="nome"
+									class="form-control" id="nome">
+							</div>
+							<div class="form-group col-md-4">
+								<label class="mr-sm-2" for="situacao">Situação</label> <select
+									class="custom-select mr-sm-2" id="situacao">
+									<option selected></option>
+									<option value="all">Todos</option>
+									<option value="1">Habilitado</option>
+									<option value="0">Desabilitado</option>
+								</select>
+							</div>
+							<div class="form-group col-md-4">
+								<label class="mr-sm-2" for="perfil">Perfil</label> <select
+									class="custom-select mr-sm-2" id="perfil">
+									<option selected></option>
+									<option value="all">Todos</option>
+									<option value="1">Gestor Nacional</option>
+									<option value="2">Gestor Estadual</option>
+									<option value="3">Gestor Municipal</option>
+								</select>
+							</div>
+						</div>
+						<div class=text-right>
+							<button type="submit" class="btn btn-primary">
+								<i class="fa fa-search"></i> Pesquisar
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<br />
+			<hr />
+			<a href="incluirUsuario.html" class="btn btn-primary" role="button"><i
+				class="fa fa-plus"></i> Incluir</a> <br />
+			<br />
+
+			<div class="table-responsive">
+				<table class="table table-striped table-sm">
+					<thead>
+						<tr>
+							<th>Email</th>
+							<th>Nome</th>
+							<th>Perfil</th>
+							<th>Habilitado</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr data-ng-repeat="user in users">
+							<td>user.email</td>
+							<td>user.nomeUsuario</td>
+							<td>user.perfil</td>
+							<td><label class="switch"> <input type="checkbox"
+									checked> <span class="slider round"></span>
+							</label></td>
+							<td><a data-ng-click="editarUsuario(user.cpf)"
+								id="editarUsuario" data-toggle="tooltip" data-placement="bottom"
+								title="Editar"><i class="fas fa-pencil-alt"></i> </a> <a
+								data-ng-click="deletarUsuario(user.cpf)" id="excluirUsuario"
+								data-toggle="tooltip" data-placement="bottom" title="Excluir"><i
+									class="fas fa-trash"></i> </a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			</main>
+		</div>
+	</div>
+	<script src="bower_components/jquery/jquery.js"></script>
+      <script src="bower_components/angular/angular.js"></script>
+
+      <!-- build:js scripts/plugins.js -->
+      <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
+      <script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
+      <script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
+      <script src="bower_components/bootstrap-sass/js/bootstrap-tooltip.js"></script>
+      <script src="bower_components/bootstrap-sass/js/bootstrap-modal.js"></script>
+      <script src="bower_components/bootstrap-sass/js/bootstrap-transition.js"></script>
+      <script src="bower_components/bootstrap-sass/js/bootstrap-button.js"></script>
+      <script src="bower_components/bootstrap-sass/js/bootstrap-popover.js"></script>
+      <script src="bower_components/bootstrap-sass/js/bootstrap-typeahead.js"></script>
+      <script src="bower_components/bootstrap-sass/js/bootstrap-carousel.js"></script>
+      <script src="bower_components/bootstrap-sass/js/bootstrap-scrollspy.js"></script>
+      <script src="bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
+      <script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
+      <!-- endbuild -->
+
+      <!-- build:js scripts/modules.js -->
+      <script src="bower_components/angular-resource/angular-resource.js"></script>
+      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+      <!-- endbuild -->
+
+      <!-- build:js({.tmp,app}) scripts/scripts.js -->
+		<script src="resources/js/app.js"></script>
+		<script src="resources/js/services.js"></script>
+		<script src="resources/js/controllers.js"></script>
+      <!-- endbuild -->
 </body>
 </html>
