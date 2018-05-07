@@ -24,7 +24,7 @@ Injeção de Dependências e Gerenciamento de Transações com Maven e utilizaç
 
 JPA/Hibernate;
 
--Frontend
+- Frontend
 
 AngularJS;
 
